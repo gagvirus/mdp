@@ -1,0 +1,34 @@
+{
+  "special": {
+    "ballista": 70,
+    "gauss_cannon": 1370.5,
+    "rocket_launcher": 980,
+    "super_shotgun": 250
+  },
+  "armor": {
+    "armor": 200,
+    "boots": 200,
+    "gloves": 20,
+    "helmet": 20
+  },
+  "ultimate": {
+    "chainsaw": 150.5,
+    "crucible": 960,
+    "unmaykr": 165.5,
+    "bfg_9000": 500
+  },
+  "launchers": {
+    "flame_belch": 60,
+    "frag_grenade": 200.5,
+    "ice_bomb": 100.5,
+    "arc_grenade": 100.5,
+    "acid_spit": 53.5
+  },
+  "main": {
+    "burst_rifle": 42,
+    "chain_gun": 30,
+    "combat_shotgun": 70,
+    "heavy_cannon": 107.5,
+    "plasma_rifle": 80
+  }
+}
