@@ -63,7 +63,13 @@ $red: #ff0000;
 		width: 64px;
 		height: 32px;
 		top: 32px;
-		left: 160px;
+		left: 40%;
+	}
+
+	.value-wrapper {
+		position: fixed;
+		background-color: white;
+		box-shadow: 0 0 0 black;
 	}
 }
 
