@@ -36,7 +36,9 @@ function App() {
 
 	return (
 		<div className="App">
-			<ItemsWrapper items={items} handleMouseOver={handleMouseOver} handleMouseLeave={handleMouseLeave} />
+			<div className="container">
+				<ItemsWrapper items={items} handleMouseOver={handleMouseOver} handleMouseLeave={handleMouseLeave} />
+			</div>
 			<div className="level-slider">
 				<input type="number" value={level} onChange={evt => setLevel(parseInt(evt.target.value))} min={1} max={80}/>
 			</div>

@@ -10,18 +10,21 @@ interface ItemsWrapperProps {
 
 function ItemsWrapper({items, handleMouseOver, handleMouseLeave}: ItemsWrapperProps) {
 	return <div className="items-wrapper">
-		{items.map((item: Item, itemKey) => (
-			<div className="item-wrapper" key={itemKey}>
-				{RARITIES.map((rarity, rarityKey) => (
-					<div className={`item item-rarity ${rarity}`} key={rarityKey}
-							 onMouseEnter={(evt) => handleMouseOver(evt, item, rarity)}
-							 onMouseLeave={handleMouseLeave}
-					>
-						<img src={item.getImageUrl()} alt={`${item.name}-${rarity}`}/>
+		<div className="row">
+			{items.map((item: Item, itemKey) => {
+				return RARITIES.map((rarity, rarityKey) => (
+					<div className="col-2">
+						<div className={`item item-rarity ${rarity}`} key={rarityKey}
+								 onMouseEnter={(evt) => handleMouseOver(evt, item, rarity)}
+								 onMouseLeave={handleMouseLeave}
+						>
+							<img src={item.getImageUrl()} alt={`${item.name}-${rarity}`}/>
+						</div>
 					</div>
-				))}
-			</div>
-		))}
+				))
+			})}
+
+		</div>
 	</div>
 }
 
