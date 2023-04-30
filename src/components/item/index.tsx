@@ -7,41 +7,40 @@ import ItemPreview from "../item-preview/item-preview";
 
 interface ItemProps {
   item: ItemModel;
-  rarity: Rarity;
+  handleLevelChange: (itemId: string, newLevel: number) => void;
 }
 
-function Item({item, rarity}: ItemProps) {
+function Item({item, handleLevelChange}: ItemProps) {
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const [level, setLevel] = useState(1);
 
   const handleSliderChange = (value: number | number[]) => {
-    setLevel(value as number);
+    handleLevelChange(item.id, value as number);
   }
 
   return <>
-    <ItemPreview level={level} item={item} rarity={rarity} setDetailsOpen={setDetailsOpen}/>
+    <ItemPreview item={item} setDetailsOpen={setDetailsOpen}/>
     {detailsOpen &&
       <Modal title={item.name} show={true} onClose={() => setDetailsOpen(false)} showClose={true} showSave={false}>
         <div className="row">
           <div className="col-10">
             <div style={{width: 200, margin: "auto"}}>
-              <ItemPreview level={level} item={item} rarity={rarity}/>
+              <ItemPreview item={item} />
             </div>
             <ul>
               <li>
-                Attribute: {Math.ceil(item.getValueForLevel(level, rarity))}
+                Attribute: {Math.ceil(item.getValueForLevel())}
               </li>
               <li>
-                Upgrade Cost: {item.getMoneyCost(level)}
+                Upgrade Cost: {item.getMoneyCost()}
               </li>
               <li>
-                Upgrade Tokens Cost: {item.getTokenCost(level)}
+                Upgrade Tokens Cost: {item.getTokenCost()}
               </li>
               <li>
-                Total Upgrade Cost: {item.getTotalMoneyCost(level)}
+                Total Upgrade Cost: {item.getTotalMoneyCost()}
               </li>
               <li>
-                Total Upgrade Tokens Cost: {item.getTotalTokenCost(level)}
+                Total Upgrade Tokens Cost: {item.getTotalTokenCost()}
               </li>
             </ul>
           </div>
@@ -49,12 +48,12 @@ function Item({item, rarity}: ItemProps) {
             <Slider
               vertical
               style={{height: 400}}
-              max={item.getMaxLevelForRarity(rarity)}
+              max={item.getMaxLevelForRarity()}
               min={1}
               startPoint={1}
               step={1}
               onChange={(n) => handleSliderChange(n)}
-              marks={item.getMarksForRarity(rarity)}
+              marks={item.getMarksForRarity()}
             />
           </div>
         </div>

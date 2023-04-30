@@ -1,19 +1,31 @@
 import React, {useEffect, useState} from "react";
 import "./App.scss";
 import data from "./data.json";
-import {Item} from "./models";
+import {Dict, Item, RARITIES} from "./models";
 import ItemsWrapper from "./components/items-wrapper";
 
 function App() {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Dict<Item>>({});
+
+  function handleLevelChange(itemId: string, level: number) {
+    // const item = {...items[itemId]};
+    const item = items[itemId].clone();
+    item.level = level;
+    const newItems = {...items};
+    newItems[itemId] = item;
+    setItems(newItems)
+  }
 
   useEffect(() => {
-    const newItems: Item[] = [];
+    const newItems: Dict<Item> = {};
     Object.keys(data).forEach((itemType: string) => {
       const itemsForType = (data as any)[itemType];
       Object.keys(itemsForType).forEach((itemName: string) => {
-        const itemValue = (itemsForType as any)[itemName];
-        newItems.push(new Item(itemType, itemName, itemValue));
+        RARITIES.forEach((rarity) => {
+          const itemValue = (itemsForType as any)[itemName];
+          const item = new Item(itemType, itemName, itemValue, rarity)
+          newItems[item.id] = item;
+        });
       })
     })
     setItems(newItems);
@@ -22,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <ItemsWrapper items={items}/>
+        <ItemsWrapper items={items} handleLevelChange={handleLevelChange}/>
       </div>
     </div>
   );

@@ -1,22 +1,20 @@
-import {Item as ItemModel, RARITIES} from "../../models";
+import {Dict, Item as ItemModel} from "../../models";
 import React from "react";
 import "./index.scss";
 import Item from "../item";
 
 interface ItemsWrapperProps {
-  items: ItemModel[];
+  items: Dict<ItemModel>;
+  handleLevelChange: (itemId: string, newLevel: number) => void;
 }
 
-function ItemsWrapper({items}: ItemsWrapperProps) {
+function ItemsWrapper({items, handleLevelChange}: ItemsWrapperProps) {
   return <div className="items-wrapper">
     <div className="row">
-      {items.map((item: ItemModel, itemKey) => {
-        return RARITIES.map((rarity, rarityKey) => (
-          <div className="col-2" key={`${itemKey}-${rarityKey}`}>
-            <Item item={item} rarity={rarity} />
-          </div>
-        ))
-      })}
+      {Object.values(items).map((item) =>
+        <div className="col-2" key={item.id}>
+          <Item item={item} handleLevelChange={handleLevelChange}/>
+        </div>)}
 
     </div>
   </div>
