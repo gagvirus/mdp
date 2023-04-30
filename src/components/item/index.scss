@@ -1,6 +1,7 @@
 @import "../../styles/colors";
 
 .item {
+	position: relative;
 	&.item-rarity {
 		&.common {
 			background-image: linear-gradient(0deg, $commonDark, $commonLight, $commonDark);
@@ -21,6 +22,14 @@
 			background-image: linear-gradient(0deg, $epicDark, $epicLight, $epicDark);
 			border: 4px solid $epicBorder;
 		}
+	}
+
+	.level {
+		text-align: right;
+		margin: 0;
+		right: 10px;
+		bottom: 10px;
+		position: absolute;
 	}
 
 	img {
