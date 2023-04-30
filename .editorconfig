@@ -1,9 +1,9 @@
 [*.tsx]
 indent_size = 2
-indent_style = tab
+indent_style = space
 end_of_line = crlf
 
 [*.scss]
 indent_size = 2
-indent_style = tab
+indent_style = space
 end_of_line = crlf

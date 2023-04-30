@@ -1,49 +1,50 @@
 @import "../../styles/colors";
 
 .item {
-	position: relative;
-	&.item-rarity {
-		&.common {
-			background-image: linear-gradient(0deg, $commonDark, $commonLight, $commonDark);
-			border: 4px solid $commonBorder;
-		}
+  position: relative;
 
-		&.uncommon {
-			background-image: linear-gradient(0deg, $uncommonDark, $uncommonLight, $uncommonDark);
-			border: 4px solid $uncommonBorder;
-		}
+  &.item-rarity {
+    &.common {
+      background-image: linear-gradient(0deg, $commonDark, $commonLight, $commonDark);
+      border: 4px solid $commonBorder;
+    }
 
-		&.rare {
-			background-image: linear-gradient(0deg, $rareDark, $rareLight, $rareDark);
-			border: 4px solid $rareBorder;
-		}
+    &.uncommon {
+      background-image: linear-gradient(0deg, $uncommonDark, $uncommonLight, $uncommonDark);
+      border: 4px solid $uncommonBorder;
+    }
 
-		&.epic {
-			background-image: linear-gradient(0deg, $epicDark, $epicLight, $epicDark);
-			border: 4px solid $epicBorder;
-		}
-	}
+    &.rare {
+      background-image: linear-gradient(0deg, $rareDark, $rareLight, $rareDark);
+      border: 4px solid $rareBorder;
+    }
 
-	.level {
-		text-align: right;
-		margin: 0;
-		right: 10px;
-		bottom: 10px;
-		position: absolute;
-		color: white;
-		font-size: 18px;
-	}
+    &.epic {
+      background-image: linear-gradient(0deg, $epicDark, $epicLight, $epicDark);
+      border: 4px solid $epicBorder;
+    }
+  }
 
-	@media screen and (max-width: 960px) {
-		.level {
-			right: 5px;
-			bottom: 5px;
-			font-size: 14px;
-		}
-	}
+  .level {
+    text-align: right;
+    margin: 0;
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+    color: white;
+    font-size: 18px;
+  }
 
-	img {
-		width: 100%;
-	}
+  @media screen and (max-width: 960px) {
+    .level {
+      right: 5px;
+      bottom: 5px;
+      font-size: 14px;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 
 }

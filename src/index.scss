@@ -4,6 +4,7 @@
   font-family: EternalUiBold;
   src: url('./fonts/EternalUi2Bold-nRwLg.ttf');
 }
+
 @font-face {
   font-family: EternalAncient;
   src: url('./fonts/EternalAncient-8MXeg.ttf');
@@ -11,16 +12,17 @@
 
 body {
   margin: 0;
-	font-family: EternalUiBold, serif;
+  font-family: EternalUiBold, serif;
+  background-color: #0c1922;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: EternalAncient, serif;
+  font-family: EternalAncient, serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
