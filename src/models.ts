@@ -23,6 +23,30 @@ class Item {
         return Math.ceil(this.value * Math.pow(LEVEL_COEFFICIENT, (level - 1))) * this.getRarityMultiplier(rarity);
     }
 
+    getMoneyCost(level: number) {
+        return (level) * 150;
+    }
+
+    getTokenCost(level: number) {
+        return (level) * 2;
+    }
+
+    getTotalMoneyCost(level: number) {
+        let total = 0;
+        for (let i = 1; i <= level; i++) {
+            total += this.getMoneyCost(i);
+        }
+        return total;
+    }
+
+    getTotalTokenCost(level: number) {
+        let total = 0;
+        for (let i = 1; i <= level; i++) {
+            total += this.getTokenCost(i);
+        }
+        return total;
+    }
+
     getRarityMultiplier(rarity: Rarity) {
         const rarities = {
             common: 1,
@@ -45,10 +69,10 @@ class Item {
 
     getMarksForRarity(rarity: Rarity) {
         const maxLevels = {
-            common: {0: 0, 20: 20},
-            uncommon: {0: 0, 20: 20, 40: 40},
-            rare: {0: 0, 20: 20, 40: 40, 60: 60},
-            epic: {0: 0, 20: 20, 40: 40, 60: 60, 80: 80},
+            common: {1: 1, 20: 20},
+            uncommon: {1: 1, 20: 20, 40: 40},
+            rare: {1: 1, 20: 20, 40: 40, 60: 60},
+            epic: {1: 1, 20: 20, 40: 40, 60: 60, 80: 80},
         }
         return maxLevels[rarity];
     }

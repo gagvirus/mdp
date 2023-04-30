@@ -38,7 +38,23 @@ function Item({item, rarity}: ItemProps) {
             <div style={{width: 200, margin: "auto"}}>
               <ItemPreview level={level} item={item} rarity={rarity}/>
             </div>
-            Attribute: {Math.ceil(item.getValueForLevel(level, rarity))}
+            <ul>
+              <li>
+                Attribute: {Math.ceil(item.getValueForLevel(level, rarity))}
+              </li>
+              <li>
+                Upgrade Cost: {item.getMoneyCost(level)}
+              </li>
+              <li>
+                Upgrade Tokens Cost: {item.getTokenCost(level)}
+              </li>
+              <li>
+                Total Upgrade Cost: {item.getTotalMoneyCost(level)}
+              </li>
+              <li>
+                Total Upgrade Tokens Cost: {item.getTotalTokenCost(level)}
+              </li>
+            </ul>
           </div>
           <div className="col-2">
             <Slider
@@ -46,6 +62,7 @@ function Item({item, rarity}: ItemProps) {
               style={{height: 400}}
               max={item.getMaxLevelForRarity(rarity)}
               min={1}
+              startPoint={1}
               step={1}
               onChange={(n) => handleSliderChange(n)}
               marks={item.getMarksForRarity(rarity)}
