@@ -1,25 +1,19 @@
-import {Item, RARITIES, Rarity} from "../../models";
+import {Item as ItemModel, RARITIES} from "../../models";
 import React from "react";
 import "./index.scss";
+import Item from "../item";
 
 interface ItemsWrapperProps {
-	items: Item[];
-	handleMouseOver: (evt: React.MouseEvent<HTMLDivElement>, item: Item, rarity: Rarity) => void;
-	handleMouseLeave: () => void;
+	items: ItemModel[];
 }
 
-function ItemsWrapper({items, handleMouseOver, handleMouseLeave}: ItemsWrapperProps) {
+function ItemsWrapper({items}: ItemsWrapperProps) {
 	return <div className="items-wrapper">
 		<div className="row">
-			{items.map((item: Item, itemKey) => {
+			{items.map((item: ItemModel, itemKey) => {
 				return RARITIES.map((rarity, rarityKey) => (
-					<div className="col-2">
-						<div className={`item item-rarity ${rarity}`} key={rarityKey}
-								 onMouseEnter={(evt) => handleMouseOver(evt, item, rarity)}
-								 onMouseLeave={handleMouseLeave}
-						>
-							<img src={item.getImageUrl()} alt={`${item.name}-${rarity}`}/>
-						</div>
+					<div className="col-2" key={`${itemKey}-${rarityKey}`}>
+						<Item item={item} rarity={rarity} level={1}/>
 					</div>
 				))
 			})}
