@@ -30,6 +30,16 @@
 		right: 10px;
 		bottom: 10px;
 		position: absolute;
+		color: white;
+		font-size: 18px;
+	}
+
+	@media screen and (max-width: 960px) {
+		.level {
+			right: 5px;
+			bottom: 5px;
+			font-size: 14px;
+		}
 	}
 
 	img {
