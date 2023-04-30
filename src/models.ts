@@ -32,6 +32,26 @@ class Item {
         }
         return Math.pow(RARITY_COEFFICIENT, rarities[rarity] - 1);
     }
+
+    getMaxLevelForRarity(rarity: Rarity) {
+        const maxLevels = {
+            common: 20,
+            uncommon: 40,
+            rare: 60,
+            epic: 80,
+        }
+        return maxLevels[rarity];
+    }
+
+    getMarksForRarity(rarity: Rarity) {
+        const maxLevels = {
+            common: {0: 0, 20: 20},
+            uncommon: {0: 0, 20: 20, 40: 40},
+            rare: {0: 0, 20: 20, 40: 40, 60: 60},
+            epic: {0: 0, 20: 20, 40: 40, 60: 60, 80: 80},
+        }
+        return maxLevels[rarity];
+    }
 }
 
 export {Item};

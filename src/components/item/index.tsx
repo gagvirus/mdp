@@ -7,11 +7,15 @@ import Slider from "rc-slider";
 interface ItemProps {
   item: ItemModel;
   rarity: Rarity;
-  level: number;
 }
 
-function Item({item, rarity, level}: ItemProps) {
+function Item({item, rarity}: ItemProps) {
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [level, setLevel] = useState(1);
+
+  const handleSliderChange = (value: number | number[]) => {
+    setLevel(value as number);
+  }
 
   return <>
     <div className={`item item-rarity ${rarity}`} onClick={() => setDetailsOpen(true)}>
@@ -20,7 +24,22 @@ function Item({item, rarity, level}: ItemProps) {
     </div>
     {detailsOpen &&
       <Modal title={item.name} show={true} onClose={() => setDetailsOpen(false)} showClose={true} showSave={true}>
-        <Slider max={80} min={1} step={1} />
+        <div className="row">
+          <div className="col-10">
+
+          </div>
+          <div className="col-2">
+            <Slider
+              vertical
+              style={{height: 400}}
+              max={item.getMaxLevelForRarity(rarity)}
+              min={1}
+              step={1}
+              onChange={(n) => handleSliderChange(n)}
+              marks={item.getMarksForRarity(rarity)}
+            />
+          </div>
+        </div>
       </Modal>}
   </>
 }

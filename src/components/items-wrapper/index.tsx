@@ -13,7 +13,7 @@ function ItemsWrapper({items}: ItemsWrapperProps) {
       {items.map((item: ItemModel, itemKey) => {
         return RARITIES.map((rarity, rarityKey) => (
           <div className="col-2" key={`${itemKey}-${rarityKey}`}>
-            <Item item={item} rarity={rarity} level={1}/>
+            <Item item={item} rarity={rarity} />
           </div>
         ))
       })}
