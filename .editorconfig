@@ -3,6 +3,11 @@ indent_size = 2
 indent_style = space
 end_of_line = crlf
 
+[*.ts]
+indent_size = 2
+indent_style = space
+end_of_line = crlf
+
 [*.scss]
 indent_size = 2
 indent_style = space

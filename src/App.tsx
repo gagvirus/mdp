@@ -3,6 +3,7 @@ import "./App.scss";
 import data from "./data.json";
 import {Dict, Item, RARITIES} from "./models";
 import ItemsWrapper from "./components/items-wrapper";
+import Inventory from "./components/inventory";
 
 function App() {
   const [items, setItems] = useState<Dict<Item>>({});
@@ -34,6 +35,8 @@ function App() {
   return (
     <div className="App">
       <div className="container">
+        <Inventory />
+
         <ItemsWrapper items={items} handleLevelChange={handleLevelChange}/>
       </div>
     </div>
