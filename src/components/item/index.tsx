@@ -11,6 +11,7 @@ interface ItemProps {
 function Item({item, rarity, level}: ItemProps) {
 	return <div className={`item item-rarity ${rarity}`}>
 		<img src={item.getImageUrl()} alt={`${item.name}-${rarity}`}/>
+		<span className="level">{level}</span>
 	</div>
 }
 
