@@ -2,6 +2,7 @@ import {Item as ItemModel, Rarity} from "../../models";
 import React, {useState} from "react";
 import "./index.scss";
 import Modal from "../modal";
+import Slider from "rc-slider";
 
 interface ItemProps {
   item: ItemModel;
@@ -18,7 +19,9 @@ function Item({item, rarity, level}: ItemProps) {
       <p className="level">{level}</p>
     </div>
     {detailsOpen &&
-      <Modal title={item.name} show={true} onClose={() => setDetailsOpen(false)} showClose={true} showSave={true}/>}
+      <Modal title={item.name} show={true} onClose={() => setDetailsOpen(false)} showClose={true} showSave={true}>
+        <Slider max={80} min={1} step={1} />
+      </Modal>}
   </>
 }
 

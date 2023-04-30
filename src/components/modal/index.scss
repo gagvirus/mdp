@@ -2,8 +2,14 @@
 
 .modal {
   .modal-dialog {
+    .modal-header {
+      border-color: $borderColor;
+    }
     .modal-content {
       background-color: $backgroundColor;
+    }
+    .modal-footer {
+      border-color: $borderColor;
     }
   }
 }
