@@ -18,7 +18,7 @@ function Item({item, rarity, level}: ItemProps) {
       <p className="level">{level}</p>
     </div>
     {detailsOpen &&
-      <Modal title={item.name} show={true} onClose={() => setDetailsOpen(false)} showClose={true} showSave={false}/>}
+      <Modal title={item.name} show={true} onClose={() => setDetailsOpen(false)} showClose={true} showSave={true}/>}
   </>
 }
 

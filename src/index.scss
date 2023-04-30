@@ -1,4 +1,5 @@
 @import "bootstrap/scss/bootstrap";
+@import "./styles/colors";
 
 @font-face {
   font-family: EternalUiBold;
@@ -13,13 +14,30 @@
 body {
   margin: 0;
   font-family: EternalUiBold, serif;
-  background-color: #0c1922;
+  background-color: $backgroundColor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: EternalAncient, serif;
+  color: $textColor;
+  text-shadow: 0 0 4px $textShadowColor;
+}
+
+button {
+  &.btn {
+    &.btn-primary {
+      color: $buttonPrimaryTextColor;
+      background-color: $buttonPrimaryBackgroundColor;
+      border: 3px solid $buttonPrimaryBorderColor;
+    }
+    &.btn-success {
+      color: $buttonSuccessTextColor;
+      background-color: $buttonSuccessBackgroundColor;
+      border: 3px solid $buttonSuccessBorderColor;
+    }
+  }
 }
 
 code {

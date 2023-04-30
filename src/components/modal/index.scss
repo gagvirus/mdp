@@ -1,0 +1,9 @@
+@import "../../styles/colors";
+
+.modal {
+  .modal-dialog {
+    .modal-content {
+      background-color: $backgroundColor;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import './index.scss';
 
 interface ModalProps {
   show?: boolean;
@@ -41,10 +42,10 @@ function Modal({
         </div>
         <div className="modal-footer">
           {showClose &&
-            <button type="button" className="btn btn-secondary" onClick={handleClose}>{closeLabel}</button>
+            <button type="button" className="btn btn-primary" onClick={handleClose}>{closeLabel}</button>
           }
           {showSave &&
-            <button type="button" className="btn btn-primary" onClick={handleSave}>{saveLabel}</button>
+            <button type="button" className="btn btn-success" onClick={handleSave}>{saveLabel}</button>
           }
         </div>
       </div>
