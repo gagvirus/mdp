@@ -9,6 +9,18 @@ interface ItemProps {
   rarity: Rarity;
 }
 
+interface ItemPreviewProps extends ItemProps {
+  setDetailsOpen?: (open: boolean) => void;
+  level: number;
+}
+
+function ItemPreview({level, rarity, setDetailsOpen, item}: ItemPreviewProps) {
+  return <div className={`item item-rarity ${rarity}`} onClick={() => setDetailsOpen && setDetailsOpen(true)}>
+    <img src={item.getImageUrl()} alt={`${item.name}-${rarity}`}/>
+    <p className="level">{level}</p>
+  </div>
+}
+
 function Item({item, rarity}: ItemProps) {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [level, setLevel] = useState(1);
@@ -18,15 +30,15 @@ function Item({item, rarity}: ItemProps) {
   }
 
   return <>
-    <div className={`item item-rarity ${rarity}`} onClick={() => setDetailsOpen(true)}>
-      <img src={item.getImageUrl()} alt={`${item.name}-${rarity}`}/>
-      <p className="level">{level}</p>
-    </div>
+    <ItemPreview level={level} item={item} rarity={rarity} setDetailsOpen={setDetailsOpen}/>
     {detailsOpen &&
       <Modal title={item.name} show={true} onClose={() => setDetailsOpen(false)} showClose={true} showSave={false}>
         <div className="row">
           <div className="col-10">
-
+            <div style={{width: 200, margin: "auto"}}>
+              <ItemPreview level={level} item={item} rarity={rarity}/>
+            </div>
+            Attribute: {Math.ceil(item.getValueForLevel(level, rarity))}
           </div>
           <div className="col-2">
             <Slider
