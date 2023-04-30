@@ -1,5 +1,6 @@
 import {Item, RARITIES, Rarity} from "../../models";
 import React from "react";
+import "./index.scss";
 
 interface ItemsWrapperProps {
 	items: Item[];

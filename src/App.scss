@@ -1,61 +1,6 @@
 @import "bootstrap/scss/bootstrap";
 
-$epicDark: #3e1b53;
-$epicLight: #b181cd;
-$epicBorder: #c968e9;
-$rareDark: #173551;
-$rareLight: #668ba8;
-$rareBorder: #62d0f3;
-$uncommonDark: #1b3f1b;
-$uncommonLight: #75be6f;
-$uncommonBorder: #72f95f;
-$commonDark: #313639;
-$commonLight: #90a2a4;
-$commonBorder: #a7b6b9;
-
-$red: #ff0000;
-
 .App {
-	.items-wrapper {
-		.item-wrapper {
-			display: flex;
-
-			.item {
-				display: flex;
-				width: 80px;
-				height: 80px;
-				margin: 3px;
-
-				&.item-rarity {
-					&.common {
-						background-image: linear-gradient(0deg, $commonDark, $commonLight, $commonDark);
-						border: 4px solid $commonBorder;
-					}
-
-					&.uncommon {
-						background-image: linear-gradient(0deg, $uncommonDark, $uncommonLight, $uncommonDark);
-						border: 4px solid $uncommonBorder;
-					}
-
-					&.rare {
-						background-image: linear-gradient(0deg, $rareDark, $rareLight, $rareDark);
-						border: 4px solid $rareBorder;
-					}
-
-					&.epic {
-						background-image: linear-gradient(0deg, $epicDark, $epicLight, $epicDark);
-						border: 4px solid $epicBorder;
-					}
-				}
-
-				img {
-					width: 100%;
-				}
-
-			}
-		}
-	}
-
 	.level-slider {
 		position: fixed;
 		width: 64px;
