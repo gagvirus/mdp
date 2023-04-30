@@ -1,3 +1,5 @@
+@import "bootstrap/scss/bootstrap";
+
 $epicDark: #3e1b53;
 $epicLight: #b181cd;
 $epicBorder: #c968e9;
@@ -14,10 +16,6 @@ $commonBorder: #a7b6b9;
 $red: #ff0000;
 
 .App {
-	width: 700px;
-	margin: auto;
-	position: relative;
-
 	.items-wrapper {
 		.item-wrapper {
 			display: flex;

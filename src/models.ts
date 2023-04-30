@@ -2,6 +2,7 @@ const LEVEL_COEFFICIENT = 1.05;
 const RARITY_COEFFICIENT = 1.2;
 
 export type Rarity = "common" | "uncommon" | "rare" | "epic";
+export const RARITIES: Rarity[] = ["common", "uncommon", "rare", "epic"];
 
 class Item {
     public type: string;
