@@ -4,6 +4,8 @@ const RARITY_COEFFICIENT = 1.2;
 export type Rarity = "common" | "uncommon" | "rare" | "epic";
 export const RARITIES: Rarity[] = ["epic", "rare", "uncommon", "common"];
 
+export type EquipmentType = "main" | "special" | "ultimate" | "launcher" | "armor" | "boots" | "gloves" | "helmet";
+
 export interface Dict<T> {
   [key: string]: T;
 }

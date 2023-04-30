@@ -3,6 +3,12 @@
 .item {
   position: relative;
 
+  &.placeholder {
+    border: 4px solid $commonLight;
+    background-color: $commonDark;
+    width: 100%;
+  }
+
   &.item-rarity {
     &.common {
       background-image: linear-gradient(0deg, $commonDark, $commonLight, $commonDark);
