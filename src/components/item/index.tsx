@@ -1,4 +1,4 @@
-import {Item as ItemModel, Rarity} from "../../models";
+import {Item as ItemModel} from "../../models";
 import React, {useState} from "react";
 import "./index.scss";
 import Modal from "../modal";
