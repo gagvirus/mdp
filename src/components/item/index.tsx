@@ -3,22 +3,11 @@ import React, {useState} from "react";
 import "./index.scss";
 import Modal from "../modal";
 import Slider from "rc-slider";
+import ItemPreview from "../item-preview/item-preview";
 
 interface ItemProps {
   item: ItemModel;
   rarity: Rarity;
-}
-
-interface ItemPreviewProps extends ItemProps {
-  setDetailsOpen?: (open: boolean) => void;
-  level: number;
-}
-
-function ItemPreview({level, rarity, setDetailsOpen, item}: ItemPreviewProps) {
-  return <div className={`item item-rarity ${rarity}`} onClick={() => setDetailsOpen && setDetailsOpen(true)}>
-    <img src={item.getImageUrl()} alt={`${item.name}-${rarity}`}/>
-    <p className="level">{level}</p>
-  </div>
 }
 
 function Item({item, rarity}: ItemProps) {
