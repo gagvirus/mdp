@@ -43,6 +43,13 @@ class Item {
     )
   }
 
+  isEqual(item: Item | null) {
+    if (!item) {
+      return false;
+    }
+    return item.id === this.id;
+  }
+
   getImageUrl() {
     return `/images/${this.name}.png`;
   }

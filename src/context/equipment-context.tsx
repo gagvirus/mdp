@@ -46,10 +46,19 @@ const useEquipment = () => {
     newEquipment[item.type] = itemClone;
     setEquipment(newEquipment);
   }
+  const unequipItem = (item: Item) => {
+    const newEquipment = {...equipment};
+    newEquipment[item.type] = null;
+    setEquipment(newEquipment);
+  }
+  const isItemEquipped = (item: Item) => {
+    const equippedItem = equipment[item.type];
+    return item.isEqual(equippedItem);
+  }
   const getItem = (type: EquipmentType) => {
     return equipment[type];
   }
-  return {equipment, setEquipment, equipItem, getItem}
+  return {equipment, setEquipment, equipItem, getItem, isItemEquipped, unequipItem};
 }
 
 export {EquipmentContextProvider, useEquipment};
