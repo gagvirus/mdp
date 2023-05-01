@@ -12,9 +12,9 @@ interface ItemDetailsProps {
 }
 
 function ItemDetails({item, handleClose, handleLevelChange}: ItemDetailsProps) {
-  const {equipItem} = useEquipment();
+  const {equipItem, unequipItem, isItemEquipped} = useEquipment();
   const handleSave = () => {
-    equipItem(item);
+    isItemEquipped(item) ? unequipItem(item) : equipItem(item);
     handleClose && handleClose();
   }
   return <Modal
@@ -23,13 +23,13 @@ function ItemDetails({item, handleClose, handleLevelChange}: ItemDetailsProps) {
     onClose={handleClose}
     showClose={true}
     showSave={true}
-    saveLabel={"Equip"}
+    saveLabel={isItemEquipped(item) ? "Unequip" : "Equip"}
     onSave={handleSave}
   >
     <div className="row">
       <div className="col-10">
         <div style={{width: 200, margin: "auto"}}>
-          <ItemPreview item={item} />
+          <ItemPreview item={item}/>
         </div>
         <ul>
           <li>
