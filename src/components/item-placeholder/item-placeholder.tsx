@@ -6,7 +6,7 @@ interface ItemPlaceholderProps {
 }
 
 function ItemPlaceholder({type}: ItemPlaceholderProps) {
-  return <div className={`item placeholder`}>
+  return <div className={`item item-placeholder`}>
     <img src={"/images/placeholder/" + type + '.png'} alt={`${type}-placeholder`}/>
   </div>
 }
