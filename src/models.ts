@@ -10,6 +10,10 @@ export interface Dict<T> {
   [key: string]: T;
 }
 
+export interface ItemsDict {
+  [key: string]: Item;
+}
+
 class Item {
   public type: string;
   public name: string;
