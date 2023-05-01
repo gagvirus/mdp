@@ -22,7 +22,15 @@ const ItemsContextProvider = ({children}: ItemsContextProviderProps) => {
 
 const useItems = () => {
   const itemsContext = useContext(ItemsContext);
-  return {items: itemsContext.items, setItems: itemsContext.setItems}
+  const {items, setItems} = itemsContext;
+  const setItemLevel = (itemId: string, level: number) => {
+    const item = items[itemId].clone();
+    item.level = level;
+    const newItems = {...items};
+    newItems[itemId] = item;
+    setItems(newItems)
+  }
+  return {items, setItems, setItemLevel}
 }
 
 export {ItemsContextProvider, useItems};

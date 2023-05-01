@@ -22,20 +22,11 @@ function ItemsWrapper() {
     setItems(newItems);
   }, [setItems]);
 
-  function handleLevelChange(itemId: string, level: number) {
-    // const item = {...items[itemId]};
-    const item = items[itemId].clone();
-    item.level = level;
-    const newItems = {...items};
-    newItems[itemId] = item;
-    setItems(newItems)
-  }
-
   return <div className="items-wrapper">
     <div className="row">
       {Object.values(items).map((item) =>
         <div className="col-2" key={item.id}>
-          <Item item={item} handleLevelChange={handleLevelChange}/>
+          <Item item={item} />
         </div>)}
 
     </div>
