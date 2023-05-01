@@ -1,19 +1,23 @@
 import ItemPlaceholder from "../item-placeholder/item-placeholder";
+import {EquipmentType, Item as ItemModel} from "../../models";
+import Item from "../item";
+import {useEquipment} from "../../context/equipment-context";
+
+function ItemOrPlaceholder({item, type}: {item: ItemModel | null, type: EquipmentType}) {
+  return item ? <Item item={item} />: <ItemPlaceholder type={type} />
+}
 
 function Inventory() {
+  const weapons: EquipmentType[] = ["main", "special", "ultimate", "launcher"];
+  const armor: EquipmentType[] = ["helmet", "gloves", "armor", "boots"];
+  const {getItem} = useEquipment();
   return <div className="row">
     <div className="col-2">
-      <ItemPlaceholder type="main"/>
-      <ItemPlaceholder type="special"/>
-      <ItemPlaceholder type="ultimate"/>
-      <ItemPlaceholder type="launcher"/>
+      {weapons.map((type) => <ItemOrPlaceholder item={getItem(type)} type={type} />)}
     </div>
     <div className="col-8"></div>
     <div className="col-2">
-      <ItemPlaceholder type="helmet"/>
-      <ItemPlaceholder type="gloves"/>
-      <ItemPlaceholder type="armor"/>
-      <ItemPlaceholder type="boots"/>
+      {armor.map((type) => <ItemOrPlaceholder item={getItem(type)} type={type} />)}
     </div>
   </div>
 }
