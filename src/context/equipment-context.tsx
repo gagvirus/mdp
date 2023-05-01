@@ -1,5 +1,5 @@
 import {createContext, useContext, useState} from "react";
-import {Item} from "../models";
+import {EquipmentType, Item} from "../models";
 
 interface Equipment {
   [key: string]: Item | null
@@ -46,7 +46,10 @@ const useEquipment = () => {
     newEquipment[item.type] = itemClone;
     setEquipment(newEquipment);
   }
-  return {equipment, setEquipment, equipItem}
+  const getItem = (type: EquipmentType) => {
+    return equipment[type];
+  }
+  return {equipment, setEquipment, equipItem, getItem}
 }
 
 export {EquipmentContextProvider, useEquipment};
