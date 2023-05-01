@@ -3,6 +3,7 @@ import Slider from "rc-slider";
 import Modal from "./modal";
 import React from "react";
 import {Item as ItemModel} from "../models";
+import {useEquipment} from "../context/equipment-context";
 
 interface ItemDetailsProps {
   item: ItemModel;
@@ -11,7 +12,20 @@ interface ItemDetailsProps {
 }
 
 function ItemDetails({item, handleClose, handleLevelChange}: ItemDetailsProps) {
-  return <Modal title={item.name} show={true} onClose={handleClose} showClose={true} showSave={false}>
+  const {equipItem} = useEquipment();
+  const handleSave = () => {
+    equipItem(item);
+    handleClose && handleClose();
+  }
+  return <Modal
+    title={item.name}
+    show={true}
+    onClose={handleClose}
+    showClose={true}
+    showSave={true}
+    saveLabel={"Equip"}
+    onSave={handleSave}
+  >
     <div className="row">
       <div className="col-10">
         <div style={{width: 200, margin: "auto"}}>
