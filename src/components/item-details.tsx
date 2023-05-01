@@ -4,18 +4,25 @@ import Modal from "./modal";
 import React from "react";
 import {Item as ItemModel} from "../models";
 import {useEquipment} from "../context/equipment-context";
+import {useItems} from "../context/items-context";
 
 interface ItemDetailsProps {
   item: ItemModel;
   handleClose: () => void;
-  handleLevelChange: (level: number | number[]) => void;
 }
 
-function ItemDetails({item, handleClose, handleLevelChange}: ItemDetailsProps) {
-  const {equipItem, unequipItem, isItemEquipped} = useEquipment();
+function ItemDetails({item, handleClose}: ItemDetailsProps) {
+  const {equipItem, unequipItem, isItemEquipped, setItemLevel: setEquippedItemLevel} = useEquipment();
+  const {setItemLevel} = useItems();
   const handleSave = () => {
     isItemEquipped(item) ? unequipItem(item) : equipItem(item);
     handleClose && handleClose();
+  }
+  const handleLevelChange = (value: number | number[]) => {
+    if (isItemEquipped(item)) {
+      setEquippedItemLevel(item, value as number);
+    }
+    setItemLevel(item, value as number);
   }
   return <Modal
     title={item.name}

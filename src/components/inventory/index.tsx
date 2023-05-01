@@ -13,11 +13,11 @@ function Inventory() {
   const {getItem} = useEquipment();
   return <div className="row">
     <div className="col-2">
-      {weapons.map((type) => <ItemOrPlaceholder item={getItem(type)} type={type} />)}
+      {weapons.map((type) => <ItemOrPlaceholder item={getItem(type)} type={type} key={type} />)}
     </div>
     <div className="col-8"></div>
     <div className="col-2">
-      {armor.map((type) => <ItemOrPlaceholder item={getItem(type)} type={type} />)}
+      {armor.map((type) => <ItemOrPlaceholder item={getItem(type)} type={type} key={type} />)}
     </div>
   </div>
 }

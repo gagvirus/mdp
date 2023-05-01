@@ -1,5 +1,5 @@
 import {createContext, useContext, useState} from "react";
-import {ItemsDict} from "../models";
+import {Item, ItemsDict} from "../models";
 
 interface ItemsContextValues {
   items: ItemsDict;
@@ -23,12 +23,12 @@ const ItemsContextProvider = ({children}: ItemsContextProviderProps) => {
 const useItems = () => {
   const itemsContext = useContext(ItemsContext);
   const {items, setItems} = itemsContext;
-  const setItemLevel = (itemId: string, level: number) => {
-    const item = items[itemId].clone();
-    item.level = level;
+  const setItemLevel = (item: Item, level: number) => {
+    const itemClone = item.clone();
+    itemClone.level = level;
     const newItems = {...items};
-    newItems[itemId] = item;
-    setItems(newItems)
+    newItems[item.id] = itemClone;
+    setItems(newItems);
   }
   return {items, setItems, setItemLevel}
 }
